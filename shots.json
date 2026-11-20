@@ -1,0 +1,20 @@
+[
+  {
+    "name": "1-cover.jpg",
+    "query": "?shot=cover&photo=boulevard&photo2=pier&caption=LEONIDA%20NIGHTS&layout=3&grade=sunset",
+    "w": 1080,
+    "h": 1080
+  },
+  {
+    "name": "2-editor.jpg",
+    "query": "?shot=editor&photo=boulevard&photo2=pier&caption=MIDNIGHT%20RUN&layout=3&grade=sunset&panel=1",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "name": "3-cover.jpg",
+    "query": "?shot=cover&photo=pier&photo2=boulevard&caption=OCEAN%20DRIVE&layout=4&grade=neon",
+    "w": 1080,
+    "h": 1080
+  }
+]
