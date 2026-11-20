@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Vice City Cover Lab turns local photos and a caption into GTA 6-style poster art. It works offline and exports a PNG.">
+  <title>Vice City Cover Lab</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23ff4f9a'/%3E%3Cstop offset='1' stop-color='%23ff9a44'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23140b1e'/%3E%3Ccircle cx='43' cy='22' r='10' fill='url(%23g)'/%3E%3Cpath d='M7 47h50' stroke='%23fff7e8' stroke-width='3'/%3E%3Cpath d='M12 47c3-8 4-14 2-23M50 47c-4-8-5-15-2-23' stroke='%23fff7e8' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="shell" id="shell">
+    <aside class="sidebar" aria-label="Cover controls">
+      <header class="brand">
+        <div class="brand-mark" aria-hidden="true"><span></span><i></i><b></b></div>
+        <div class="brand-copy">
+          <p>OFFLINE COVER STUDIO</p>
+          <h1>VICE CITY <em>LAB</em></h1>
+        </div>
+        <span class="local-pill"><i></i>LOCAL</span>
+      </header>
+
+      <div class="sidebar-scroll">
+        <section class="tool-section" aria-labelledby="photo-heading">
+          <div class="section-head">
+            <span class="section-index">01</span>
+            <h2 id="photo-heading">Photo source</h2>
+            <span class="section-note">STAYS ON DEVICE</span>
+          </div>
+          <div class="sample-grid">
+            <button class="sample-card" type="button" data-sample="boulevard">
+              <img src="./samples/boulevard.jpg" alt="Boulevard sample: a woman beside a red convertible at sunset">
+              <span class="sample-copy"><strong>Boulevard</strong><small>SUNSET DRIVE</small></span>
+              <span class="sample-use">LOAD</span>
+            </button>
+            <button class="sample-card" type="button" data-sample="pier">
+              <img src="./samples/pier.jpg" alt="Pier sample: a fisherman on a turquoise-water pier">
+              <span class="sample-copy"><strong>Pier</strong><small>OCEAN DAYS</small></span>
+              <span class="sample-use">LOAD</span>
+            </button>
+          </div>
+          <div class="source-row">
+            <label class="upload-button">
+              <input id="fileInput" type="file" accept="image/*">
+              <span class="plus" aria-hidden="true">+</span> Choose a photo
+            </label>
+            <label class="switch">
+              <input id="fillAll" type="checkbox" checked>
+              <span class="switch-track" aria-hidden="true"></span>
+              <span>All panels</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="tool-section" aria-labelledby="layout-heading">
+          <div class="section-head">
+            <span class="section-index">02</span>
+            <h2 id="layout-heading">Panel layout</h2>
+            <span class="section-note" id="layoutCount">3 PANELS</span>
+          </div>
+          <div class="layout-grid" role="group" aria-label="Cover layout">
+            <button class="layout-choice" type="button" data-layout="1" aria-label="One panel hero layout">
+              <span class="layout-mini mini-1" aria-hidden="true"></span><span>Hero</span>
+            </button>
+            <button class="layout-choice" type="button" data-layout="2" aria-label="Two panel split layout">
+              <span class="layout-mini mini-2" aria-hidden="true"></span><span>Split</span>
+            </button>
+            <button class="layout-choice" type="button" data-layout="3" aria-label="Three panel layout">
+              <span class="layout-mini mini-3" aria-hidden="true"></span><span>Triptych</span>
+            </button>
+            <button class="layout-choice" type="button" data-layout="4" aria-label="Four panel grid layout">
+              <span class="layout-mini mini-4" aria-hidden="true"></span><span>Grid</span>
+            </button>
+          </div>
+          <div class="split-row" id="splitRow">
+            <span>Divider</span>
+            <div class="segmented" role="group" aria-label="Two panel divider style">
+              <button type="button" data-split="vertical" class="is-on">Vertical</button>
+              <button type="button" data-split="diagonal">Diagonal</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="tool-section" aria-labelledby="grade-heading">
+          <div class="section-head">
+            <span class="section-index">03</span>
+            <h2 id="grade-heading">Colour grade</h2>
+            <span class="section-note">CANVAS MIX</span>
+          </div>
+          <div class="grade-grid" role="group" aria-label="Colour grade">
+            <button class="grade-choice" type="button" data-grade="sunset">
+              <span class="grade-swatch sunset-swatch" aria-hidden="true"><i></i></span>
+              <span><strong>Vice City Sunset</strong><small>Pink heat</small></span>
+            </button>
+            <button class="grade-choice" type="button" data-grade="neon">
+              <span class="grade-swatch neon-swatch" aria-hidden="true"><i></i></span>
+              <span><strong>Neon Nights</strong><small>Cyan / magenta</small></span>
+            </button>
+            <button class="grade-choice" type="button" data-grade="gold">
+              <span class="grade-swatch gold-swatch" aria-hidden="true"><i></i></span>
+              <span><strong>Palm Gold</strong><small>Golden hour</small></span>
+            </button>
+            <button class="grade-choice" type="button" data-grade="noir">
+              <span class="grade-swatch noir-swatch" aria-hidden="true"><i></i></span>
+              <span><strong>Noir</strong><small>Hard contrast</small></span>
+            </button>
+          </div>
+        </section>
+
+        <section class="tool-section" aria-labelledby="panel-heading">
+          <div class="section-head">
+            <span class="section-index">04</span>
+            <h2 id="panel-heading">Panel crop</h2>
+            <span class="section-note" id="panelName">PANEL 01</span>
+          </div>
+          <div class="panel-tabs" id="panelTabs" role="tablist" aria-label="Choose a panel"></div>
+          <div class="panel-actions">
+            <label class="mini-button">
+              <input id="panelFile" type="file" accept="image/*">Replace
+            </label>
+            <button id="panelFlip" class="mini-button" type="button">Flip</button>
+            <button id="panelApply" class="mini-button" type="button">Apply all</button>
+            <button id="panelReset" class="mini-button quiet" type="button">Reset</button>
+          </div>
+          <label class="range-field" for="zoomRange">
+            <span>Zoom <output id="zoomOut">100%</output></span>
+            <input id="zoomRange" type="range" min="100" max="260" value="100" step="1">
+          </label>
+          <p class="hint"><span class="drag-icon" aria-hidden="true">↔</span> Drag the cover to position this panel.</p>
+        </section>
+
+        <section class="tool-section text-section" aria-labelledby="caption-heading">
+          <div class="section-head">
+            <span class="section-index">05</span>
+            <h2 id="caption-heading">Cover lettering</h2>
+            <span class="section-note">LIVE</span>
+          </div>
+          <label class="text-field" for="titleInput">
+            <span>Main title</span>
+            <input id="titleInput" type="text" maxlength="40" value="LEONIDA NIGHTS" autocomplete="off" spellcheck="false">
+          </label>
+          <label class="text-field" for="subtitleInput">
+            <span>Subtitle</span>
+            <input id="subtitleInput" type="text" maxlength="52" value="A Vice City Story" autocomplete="off" spellcheck="false">
+          </label>
+          <label class="range-field" for="titleSize">
+            <span>Title size <output id="titleSizeOut">100%</output></span>
+            <input id="titleSize" type="range" min="65" max="145" value="100" step="1">
+          </label>
+          <label class="range-field" for="titlePosition">
+            <span>Position <output id="titlePositionOut">72%</output></span>
+            <input id="titlePosition" type="range" min="38" max="84" value="72" step="1">
+          </label>
+        </section>
+      </div>
+    </aside>
+
+    <main class="stage" aria-label="Cover preview">
+      <header class="stage-bar">
+        <div class="preview-title">
+          <span class="live-dot" aria-hidden="true"></span>
+          <div><p>LIVE PREVIEW</p><strong id="sceneName">LEONIDA NIGHTS</strong></div>
+        </div>
+        <div class="stage-actions">
+          <label class="size-picker" for="sizeSelect">
+            <span>FORMAT</span>
+            <select id="sizeSelect">
+              <option value="square">Square · 1080 × 1080</option>
+              <option value="portrait">Portrait · 1080 × 1350</option>
+              <option value="wide">Wide · 1920 × 1080</option>
+            </select>
+          </label>
+          <button id="exportBtn" class="export-button" type="button">
+            <span class="export-icon" aria-hidden="true">↓</span>
+            <span><small>DOWNLOAD</small>Export PNG</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="canvas-well" id="canvasWell">
+        <div class="canvas-glow" aria-hidden="true"></div>
+        <canvas id="cover" width="1080" height="1080" aria-label="Your cover art preview"></canvas>
+        <div class="canvas-meta" aria-hidden="true">
+          <span id="dimensionLabel">1080 × 1080 PX</span>
+          <span>DRAG TO PAN</span>
+        </div>
+      </div>
+
+      <footer class="stage-foot">
+        <span><i class="status-pip" aria-hidden="true"></i> <span id="status" role="status">Samples loaded locally. Nothing is uploaded.</span></span>
+        <span class="privacy-note">100% OFFLINE · NO ACCOUNT · NO WATERMARK</span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
